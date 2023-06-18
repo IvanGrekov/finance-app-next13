@@ -1,5 +1,10 @@
 @use 'scss-reset/reset';
 
+@import 'styles/variables.scss';
+
 body {
+    position: relative;
     font-family: 'Roboto';
+    background-color: $background-color;
+    color: $text-color;
 }

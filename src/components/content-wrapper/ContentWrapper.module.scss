@@ -1,0 +1,12 @@
+@import 'styles/variables.scss';
+
+.main {
+    height: 100vh;
+    width: calc(100vw - #{$sidebar-width});
+    margin-left: $sidebar-width;
+
+    @media (max-width: $screen-md) {
+        width: 100%;
+        margin-left: 0;
+    }
+}
