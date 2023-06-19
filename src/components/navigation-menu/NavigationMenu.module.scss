@@ -1,0 +1,32 @@
+@import 'styles/variables.scss';
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+}
+
+.item {
+    padding-inline: $spacing-3;
+}
+
+.item-content {
+    &--active {
+        color: $violet-500;
+    }
+
+    &:hover,
+    &:focus {
+        .text {
+            gap: $spacing-3;
+        }
+    }
+}
+
+.text {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    gap: $spacing-1;
+    transition: gap $base-transition-duration ease;
+}

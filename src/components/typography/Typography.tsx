@@ -9,7 +9,6 @@ interface ITypographyProps {
     children: ReactNode;
     element?: TTypographyElements;
     variant?: TTypographyVariants;
-    color?: string;
     style?: CSSProperties;
     className?: string;
 }
@@ -18,7 +17,6 @@ export default function Typography({
     children,
     element = 'p',
     variant = 'body1',
-    color = 'inherit',
     style,
     className,
 }: ITypographyProps): JSX.Element {
@@ -27,7 +25,7 @@ export default function Typography({
     return (
         <Element
             className={cx(styles.typography, styles[`typography--${variant}`], className)}
-            style={{ color, ...style }}
+            style={style}
         >
             {children}
         </Element>

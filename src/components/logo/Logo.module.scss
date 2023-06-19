@@ -5,10 +5,22 @@
     padding-left: $default-spacing-sm;
 }
 
+.link {
+    display: flex;
+    flex-direction: column;
+    transition: transform $base-transition-duration ease-in-out;
+
+    &:hover,
+    &:focus {
+        transform: scale(0.96);
+    }
+}
+
 .title,
 .subtitle {
     font-weight: bold;
     line-height: 1em;
+    color: $violet-300;
 }
 
 .subtitle {

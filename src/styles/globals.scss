@@ -8,3 +8,8 @@ body {
     background-color: $background-color;
     color: $text-color;
 }
+
+a {
+    color: $text-color;
+    text-decoration: none;
+}
