@@ -1,0 +1,16 @@
+@import 'styles/variables.scss';
+
+.container {
+    padding-top: $default-spacing-sm;
+    padding-left: $default-spacing-sm;
+}
+
+.title,
+.subtitle {
+    font-weight: bold;
+    line-height: 1em;
+}
+
+.subtitle {
+    text-transform: uppercase;
+}

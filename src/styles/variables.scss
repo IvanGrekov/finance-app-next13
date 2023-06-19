@@ -1,7 +1,7 @@
 // Screens
 $screen-sm: 480px;
 $screen-md: 767px;
-$screen-lg: 976px;
+$screen-lg: 1023px;
 $screen-xl: 1439px;
 
 // Z-Index
@@ -95,14 +95,20 @@ $spacing-9: 128px;
 $spacing-10: 192px;
 $spacing-11: 256px;
 $spacing-12: 384px;
+$default-spacing-md: $spacing-5;
+$default-spacing-sm: $spacing-3;
+$default-spacing-xs: $spacing-1;
 
 // Border Radius
 $border-radius-none: 0;
 $border-radius-sm: 2px;
 $border-radius-md: 4px;
-$border-radius: 4px;
 $border-radius-lg: 8px;
 $border-radius-xl: 16px;
+$border-radius: $border-radius-xl;
 
 // Sidebar
 $sidebar-width: 240px;
+
+// Transition
+$base-transition-duration: 225ms;
