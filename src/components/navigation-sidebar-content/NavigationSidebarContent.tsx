@@ -1,7 +1,6 @@
 'use client';
 
 import CloseIcon from '@mui/icons-material/Close';
-import FocusTrap from 'focus-trap-react';
 
 import IconButton from 'components/button/IconButton';
 import Logo from 'components/logo/Logo';
@@ -10,24 +9,22 @@ import styles from 'components/navigation-sidebar-content/NavigationSidebarConte
 import { useMobileNavigationSidebar } from 'models/contexts/MobileNavigationSidebar';
 
 export default function NavigationSidebarContent(): JSX.Element {
-    const { open, toggleSidebar } = useMobileNavigationSidebar();
+    const { toggleSidebar } = useMobileNavigationSidebar();
 
     return (
-        <FocusTrap active={open}>
-            <div className={styles.container}>
-                <div className={styles['logo-wrapper']}>
-                    <Logo />
-                    <IconButton
-                        icon={<CloseIcon fontSize="small" />}
-                        onClick={toggleSidebar}
-                        title="Toggle navigation sidebar"
-                        className={styles['close-button']}
-                    />
-                </div>
-                <div className={styles['navigation-wrapper']}>
-                    <NavigationMenu />
-                </div>
+        <div className={styles.container}>
+            <div className={styles['logo-wrapper']}>
+                <Logo />
+                <IconButton
+                    icon={<CloseIcon fontSize="small" />}
+                    onClick={toggleSidebar}
+                    title="Toggle navigation sidebar"
+                    className={styles['close-button']}
+                />
             </div>
-        </FocusTrap>
+            <div className={styles['navigation-wrapper']}>
+                <NavigationMenu />
+            </div>
+        </div>
     );
 }

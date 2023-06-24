@@ -14,14 +14,12 @@
     transition: left 0.3s ease-in-out;
 
     @media (max-width: $screen-md) {
-        visibility: hidden;
         left: -100%;
         border-right: none;
         width: 100%;
         padding: $spacing-5;
 
         &--open {
-            visibility: visible;
             left: 0;
         }
     }
