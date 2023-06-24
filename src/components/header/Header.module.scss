@@ -8,9 +8,4 @@
     padding-block: $default-spacing-sm;
 
     // border-bottom: 1px solid $violet-300;
-
-    @media (max-width: $screen-md) {
-        padding-inline: $default-spacing-sm;
-        padding-block: $default-spacing-xs;
-    }
 }

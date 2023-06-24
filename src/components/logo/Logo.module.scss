@@ -1,18 +1,15 @@
 @import 'styles/variables.scss';
 
-.container {
-    padding-top: $default-spacing-sm;
-    padding-left: $default-spacing-sm;
-}
-
 .link {
     display: flex;
     flex-direction: column;
-    transition: transform $base-transition-duration ease-in-out;
 
     &:hover,
     &:focus {
-        transform: scale(0.96);
+        .title,
+        .subtitle {
+            color: $hover-color;
+        }
     }
 }
 
@@ -20,7 +17,8 @@
 .subtitle {
     font-weight: bold;
     line-height: 1em;
-    color: $violet-300;
+    color: $text-color;
+    transition: color $base-transition-duration;
 }
 
 .subtitle {

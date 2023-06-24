@@ -1,0 +1,16 @@
+@import 'styles/variables.scss';
+
+.toolbar {
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-button {
+    display: none;
+    padding-left: 0;
+
+    @media (max-width: $screen-md) {
+        display: flex;
+    }
+}

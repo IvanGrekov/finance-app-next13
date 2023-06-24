@@ -6,19 +6,15 @@
     gap: $spacing-4;
 }
 
-.item {
-    padding-inline: $spacing-3;
-}
-
 .item-content {
     &--active {
-        color: $violet-500;
+        color: $hover-color;
     }
 
     &:hover,
     &:focus {
         .text {
-            gap: $spacing-3;
+            gap: $spacing-2;
         }
     }
 }

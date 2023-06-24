@@ -5,3 +5,23 @@
     flex-direction: column;
     gap: $spacing-5;
 }
+
+.logo-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-button {
+    display: none;
+    padding-top: 0;
+
+    @media (max-width: $screen-md) {
+        display: flex;
+    }
+}
+
+.navigation-wrapper {
+    @media (max-width: $screen-md) {
+        width: $sidebar-width;
+    }
+}
