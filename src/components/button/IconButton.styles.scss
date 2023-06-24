@@ -1,0 +1,43 @@
+@import 'styles/variables.scss';
+
+.icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+
+    svg {
+        color: $text-color;
+        width: 2rem;
+        height: 2rem;
+        transition: color $base-transition-duration;
+    }
+
+    &:hover,
+    &:focus {
+        outline: none;
+        background-color: var(--primary-color-opacity);
+
+        svg {
+            color: $hover-color;
+        }
+    }
+
+    &:active {
+        background-color: var(--hover-color-secondary);
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+
+        &,
+        &:hover {
+            background-color: var(--disabled-color);
+        }
+    }
+}
