@@ -48,7 +48,7 @@ export default function Button({
             style={style}
         >
             {isLoading ? (
-                <span className={styles.button__loader}>
+                <span className={styles.loader}>
                     <Loader />
                 </span>
             ) : (

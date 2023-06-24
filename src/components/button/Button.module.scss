@@ -87,23 +87,12 @@
         background-color: $disabled-color;
         cursor: not-allowed;
     }
-
-    &__loader {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -45%);
-    }
 }
 
-.button__icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    svg {
-        width: 1.625rem;
-        height: 1.625rem;
-    }
+.loader {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
 }
