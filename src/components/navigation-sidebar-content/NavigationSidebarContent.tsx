@@ -14,7 +14,7 @@ export default function NavigationSidebarContent(): JSX.Element {
     return (
         <div className={styles.container}>
             <div className={styles['logo-wrapper']}>
-                <Logo />
+                <Logo onClick={toggleSidebar} />
                 <IconButton
                     icon={<CloseIcon fontSize="small" />}
                     onClick={toggleSidebar}

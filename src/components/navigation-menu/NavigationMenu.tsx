@@ -7,9 +7,11 @@ import { usePathname } from 'next/navigation';
 import styles from 'components/navigation-menu/NavigationMenu.module.scss';
 import { NAV_ITEMS } from 'components/navigation-menu/constants';
 import Typography from 'components/typography/Typography';
+import { useMobileNavigationSidebar } from 'models/contexts/MobileNavigationSidebar';
 
 export default function NavigationMenu(): JSX.Element {
     const pathname = usePathname();
+    const { toggleSidebar } = useMobileNavigationSidebar();
 
     return (
         <ul className={styles.list}>
@@ -18,6 +20,7 @@ export default function NavigationMenu(): JSX.Element {
                     <li key={link} className={styles.item}>
                         <Link
                             href={link}
+                            onClick={toggleSidebar}
                             className={cx(styles['item-content'], {
                                 [styles['item-content--active']]: pathname === link,
                             })}
