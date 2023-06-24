@@ -1,0 +1,56 @@
+@import 'styles/variables.scss';
+
+$item-content-color: $violet-900;
+
+.notifications {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-notifications;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.25rem;
+
+    overflow: hidden;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-3;
+    width: 22.5rem;
+    padding: 1.5rem;
+
+    border-radius: 1rem;
+    background-color: $blue-300;
+
+    &--success {
+        background-color: $green-300;
+    }
+
+    &--error {
+        background-color: $red-300;
+    }
+}
+
+.text {
+    color: $item-content-color;
+}
+
+.toggle-button {
+    padding: 0;
+
+    svg {
+        color: $item-content-color;
+    }
+
+    &:hover,
+    &:focus {
+        svg {
+            color: $violet-800;
+        }
+    }
+}

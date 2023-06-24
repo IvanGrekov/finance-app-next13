@@ -1,6 +1,7 @@
 import ContentWrapper from 'components/content-wrapper/ContentWrapper';
 import NavigationSidebar from 'components/navigation-sidebar/NavigationSidebar';
 import { MobileNavigationSidebarProvider } from 'models/contexts/MobileNavigationSidebar';
+import { NotificationsProvider } from 'models/contexts/Notifications';
 import { PageLoadingProvider } from 'models/contexts/PageLoading';
 
 import '@fontsource/roboto/300.css';
@@ -20,10 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <html lang="en">
             <body>
                 <PageLoadingProvider>
-                    <MobileNavigationSidebarProvider>
-                        <NavigationSidebar />
-                        <ContentWrapper>{children}</ContentWrapper>
-                    </MobileNavigationSidebarProvider>
+                    <NotificationsProvider>
+                        <MobileNavigationSidebarProvider>
+                            <NavigationSidebar />
+                            <ContentWrapper>{children}</ContentWrapper>
+                        </MobileNavigationSidebarProvider>
+                    </NotificationsProvider>
                 </PageLoadingProvider>
             </body>
         </html>
