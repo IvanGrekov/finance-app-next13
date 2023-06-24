@@ -2,12 +2,11 @@ import { CSSProperties } from 'react';
 
 import cx from 'classnames';
 
+import styles from 'components/button/Button.module.scss';
 import { IBaseButtonProps } from 'components/button/types';
 import Loader from 'components/loader/Loader';
 import Typography from 'components/typography/Typography';
 import { TTypographyVariants } from 'components/typography/types';
-
-import 'components/button/Button.styles.scss';
 
 export interface IButtonProps extends IBaseButtonProps {
     text: string;
@@ -42,14 +41,14 @@ export default function Button({
             title={title}
             disabled={isButtonDisabled}
             onClick={onClick}
-            className={cx('button', `button--${variant}`, `button--${size}`, {
-                ['button--disabled']: isDisabled,
-                ['button--loading']: isLoading,
+            className={cx(styles.button, styles[`button--${variant}`], styles[`button--${size}`], {
+                [styles['button--disabled']]: isDisabled,
+                [styles['button--loading']]: isLoading,
             })}
             style={style}
         >
             {isLoading ? (
-                <span className="button__loader">
+                <span className={styles.button__loader}>
                     <Loader />
                 </span>
             ) : (
