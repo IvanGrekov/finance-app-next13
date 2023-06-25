@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect } from 'react';
 
 import { NOTIFICATION_DISPLAY_DURATION } from 'constants/notifications';
