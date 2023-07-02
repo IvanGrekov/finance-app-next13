@@ -4,8 +4,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: $default-spacing-md;
+    padding-inline: $default-spacing-lg;
     padding-block: $default-spacing-sm;
 
-    // border-bottom: 1px solid $violet-300;
+    @media (max-width: $screen-sm) {
+        padding-inline: $default-spacing-md;
+    }
+}
+
+.toolbar-toggle-button {
+    padding-left: 0;
+}
+
+.account-popover {
+    padding-right: 0;
 }

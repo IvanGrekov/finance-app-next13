@@ -21,7 +21,7 @@ $violet-600: #a08fc1;
 $violet-700: #927fb2;
 $violet-800: #846fa2;
 $violet-900: #2d223d;
-$violet: #846fa2;
+$violet: $violet-800;
 
 $gray-100: #f5f5f5;
 $gray-200: #e5e5e5;
@@ -96,6 +96,7 @@ $disabled-color-secondary: rgba($gray-500, 0.1);
 
 // Text Colors
 $background-color: $violet-900;
+$background-color-opacity: rgba($violet, 0.2);
 $text-color: $white-color;
 $text-secondary: $violet-300;
 
@@ -113,7 +114,8 @@ $spacing-9: 128px;
 $spacing-10: 192px;
 $spacing-11: 256px;
 $spacing-12: 384px;
-$default-spacing-md: $spacing-5;
+$default-spacing-lg: $spacing-5;
+$default-spacing-md: $spacing-4;
 $default-spacing-sm: $spacing-3;
 $default-spacing-xs: $spacing-1;
 

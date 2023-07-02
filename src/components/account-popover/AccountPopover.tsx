@@ -4,6 +4,16 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 
 import IconButton from 'components/button/IconButton';
 
-export default function AccountPopover(): JSX.Element {
-    return <IconButton icon={<AccountCircle fontSize="large" />} title="Your account" />;
+interface IAccountPopoverProps {
+    className?: string;
+}
+
+export default function AccountPopover({ className }: IAccountPopoverProps): JSX.Element {
+    return (
+        <IconButton
+            icon={<AccountCircle fontSize="large" />}
+            title="Your account"
+            className={className}
+        />
+    );
 }

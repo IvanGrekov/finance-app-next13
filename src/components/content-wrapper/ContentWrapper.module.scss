@@ -11,3 +11,12 @@
         margin-left: 0;
     }
 }
+
+.content-wrapper {
+    padding: $default-spacing-lg;
+
+    @media (max-width: $screen-sm) {
+        padding-block: $default-spacing-sm;
+        padding-inline: $default-spacing-md;
+    }
+}

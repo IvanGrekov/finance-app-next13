@@ -5,8 +5,8 @@ import Toolbar from 'components/toolbar/Toolbar';
 export default function Header(): JSX.Element {
     return (
         <header className={styles.header}>
-            <Toolbar />
-            <AccountPopover />
+            <Toolbar toggleButtonClassName={styles['toolbar-toggle-button']} />
+            <AccountPopover className={styles['account-popover']} />
         </header>
     );
 }
