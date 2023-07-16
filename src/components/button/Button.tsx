@@ -16,7 +16,9 @@ export interface IButtonProps extends IBaseButtonProps {
     size?: 'small' | 'big' | 'regular';
     textVariant?: TTypographyVariants;
     isLoading?: boolean;
+    isActive?: boolean;
     style?: CSSProperties;
+    className?: string;
 }
 
 export default function Button({
@@ -30,7 +32,9 @@ export default function Button({
     title,
     isDisabled,
     isLoading,
+    isActive,
     style,
+    className,
 }: IButtonProps): JSX.Element {
     const isButtonDisabled = isDisabled || isLoading;
 
@@ -41,10 +45,17 @@ export default function Button({
             title={title}
             disabled={isButtonDisabled}
             onClick={onClick}
-            className={cx(styles.button, styles[`button--${variant}`], styles[`button--${size}`], {
-                [styles['button--disabled']]: isDisabled,
-                [styles['button--loading']]: isLoading,
-            })}
+            className={cx(
+                styles.button,
+                styles[`button--${variant}`],
+                styles[`button--${size}`],
+                {
+                    [styles['button--disabled']]: isDisabled,
+                    [styles['button--loading']]: isLoading,
+                    [styles['active']]: isActive,
+                },
+                className,
+            )}
             style={style}
         >
             {isLoading ? (

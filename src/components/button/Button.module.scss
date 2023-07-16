@@ -9,6 +9,7 @@
 
     padding: 0.75rem 1.125rem;
 
+    color: $text-color;
     border-radius: 0.5rem;
     border: 2px solid $primary-color;
     background-color: transparent;
@@ -25,7 +26,8 @@
         color: $text-secondary;
         border-color: $primary-color-opacity;
 
-        &:hover {
+        &:hover,
+        &.active {
             border-color: $primary-color-dark;
             background-color: $hover-color-secondary;
         }
@@ -34,7 +36,8 @@
     &--contained {
         background-color: $primary-color;
 
-        &:hover {
+        &:hover,
+        &.active {
             border-color: $hover-color;
             background-color: $hover-color;
         }
@@ -43,7 +46,8 @@
     &--ghost {
         border-color: transparent;
 
-        &:hover {
+        &:hover,
+        &.active {
             background-color: $primary-color-opacity;
         }
     }
@@ -81,7 +85,8 @@
     }
 
     &--disabled,
-    &--disabled:hover {
+    &--disabled:hover,
+    &--disabled.active {
         color: $disabled-color-secondary;
         border-color: $disabled-color-secondary;
         background-color: $disabled-color;
