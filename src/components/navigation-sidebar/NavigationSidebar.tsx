@@ -1,7 +1,6 @@
 'use client';
 
 import cx from 'classnames';
-import FocusTrap from 'focus-trap-react';
 
 import styles from 'components/navigation-sidebar/NavigationSidebar.module.scss';
 import NavigationSidebarContent from 'components/navigation-sidebar-content/NavigationSidebarContent';
@@ -12,9 +11,7 @@ export default function NavigationSidebar(): JSX.Element {
 
     return (
         <aside className={cx(styles.sidebar, { [styles['sidebar--open']]: open })}>
-            <FocusTrap active={open}>
-                <NavigationSidebarContent />
-            </FocusTrap>
+            <NavigationSidebarContent />
         </aside>
     );
 }
