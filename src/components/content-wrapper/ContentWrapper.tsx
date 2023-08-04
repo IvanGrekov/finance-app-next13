@@ -10,10 +10,10 @@ import Paper from 'components/paper/Paper';
 export default function ContentWrapper({ children }: PropsWithChildren): JSX.Element {
     return (
         <main className={styles.main}>
-            <Notifications />
-            <Header />
-            <PageLoadingIndicator />
             <ErrorBoundary>
+                <Notifications />
+                <Header />
+                <PageLoadingIndicator />
                 <section className={styles['content-wrapper']}>
                     <Paper>{children}</Paper>
                 </section>

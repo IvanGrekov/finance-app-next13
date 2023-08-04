@@ -81,6 +81,9 @@
 
     &:focus {
         outline: none;
+    }
+
+    &:focus-visible {
         border-color: $primary-color-dark;
     }
 

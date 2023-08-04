@@ -84,8 +84,8 @@ $primary-color-opacity: rgba($primary-color, 0.5);
 $primary-color-opacity-200: rgba($primary-color, 0.25);
 $primary-color-dark: $violet-700;
 
-$hover-color: $primary-color;
-$hover-color-secondary: rgba($primary-color, 0.1);
+$hover-color: $violet-600;
+$hover-color-secondary: rgba($hover-color, 0.1);
 
 $white-color: $violet-100;
 $black-color: $gray-900;
