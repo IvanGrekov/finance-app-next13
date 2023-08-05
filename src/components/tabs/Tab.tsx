@@ -6,23 +6,17 @@ import { useTabsContext } from 'components/tabs/TabsContext';
 import { useTabIndicatorConnection, useTabListener } from 'components/tabs/hooks/tab.hooks';
 import { ITabProps } from 'components/tabs/types/tab';
 
-export default function Tab({
-    value,
-    currentValue,
-    label,
-    searchParamKey,
-}: ITabProps): JSX.Element | null {
+export default function Tab({ path, label }: ITabProps): JSX.Element | null {
     const tabsContext = useTabsContext();
     const tabElementRef = useRef<HTMLDivElement | null>(null);
 
     useTabIndicatorConnection({
         tabElementRef,
-        value,
-        currentValue,
+        path,
         ...(tabsContext || {}),
     });
 
-    useTabListener({ tabElementRef, value, searchParamKey });
+    useTabListener({ tabElementRef, path });
 
     return (
         <div ref={tabElementRef} className={styles.tab}>

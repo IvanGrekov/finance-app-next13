@@ -1,6 +1,4 @@
 export interface ITabProps {
-    value: string;
-    currentValue: string;
+    path: string;
     label: string;
-    searchParamKey: string;
 }

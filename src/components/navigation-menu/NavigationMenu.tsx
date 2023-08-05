@@ -20,9 +20,10 @@ export default function NavigationMenu(): JSX.Element {
                     <li key={link} className={styles.item}>
                         <Link
                             href={link}
+                            shallow={true}
                             onClick={toggleSidebar}
                             className={cx(styles['item-content'], {
-                                [styles['item-content--active']]: pathname === link,
+                                [styles['item-content--active']]: pathname.startsWith(link),
                             })}
                         >
                             <Typography element="span" variant="body1" className={styles.text}>

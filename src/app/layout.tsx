@@ -1,3 +1,4 @@
+import Providers from 'app/providers';
 import ContentWrapper from 'components/content-wrapper/ContentWrapper';
 import NavigationSidebar from 'components/navigation-sidebar/NavigationSidebar';
 import { MobileNavigationSidebarProvider } from 'models/contexts/MobileNavigationSidebar';
@@ -24,7 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                     <NotificationsProvider>
                         <MobileNavigationSidebarProvider>
                             <NavigationSidebar />
-                            <ContentWrapper>{children}</ContentWrapper>
+                            <ContentWrapper>
+                                <Providers>{children}</Providers>
+                            </ContentWrapper>
                         </MobileNavigationSidebarProvider>
                     </NotificationsProvider>
                 </PageLoadingProvider>

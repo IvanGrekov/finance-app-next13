@@ -3,6 +3,6 @@ export const metadata = {
     description: 'Track your loans',
 };
 
-export default function Loans(): JSX.Element {
+export default function LoansPage(): JSX.Element {
     return <h1>Loans</h1>;
 }

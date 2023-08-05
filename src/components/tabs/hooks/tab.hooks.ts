@@ -1,12 +1,13 @@
 import { useEffect, MutableRefObject } from 'react';
 
+import { usePathname, useRouter } from 'next/navigation';
+
 import { ITabsContextValue } from 'components/tabs/TabsContext';
 import { ITabProps } from 'components/tabs/types/tab';
-import { useUpdateSearchParams } from 'hooks/searchParams.hooks';
 
 type TTabElementRef = MutableRefObject<HTMLDivElement | null>;
 
-type TUseTabIndicatorConnectionProps = Pick<ITabProps, 'value' | 'currentValue'> & {
+type TUseTabIndicatorConnectionProps = Pick<ITabProps, 'path'> & {
     tabElementRef: TTabElementRef;
     indicatorElement?: ITabsContextValue['indicatorElement'];
     initialIndicatorLeftPosition?: ITabsContextValue['initialIndicatorLeftPosition'];
@@ -18,9 +19,10 @@ export const useTabIndicatorConnection: TUseTabIndicatorConnection = ({
     tabElementRef,
     indicatorElement,
     initialIndicatorLeftPosition,
-    value,
-    currentValue,
+    path,
 }) => {
+    const pathname = usePathname();
+
     useEffect(() => {
         const tabElementRect = tabElementRef.current?.getBoundingClientRect();
 
@@ -28,20 +30,20 @@ export const useTabIndicatorConnection: TUseTabIndicatorConnection = ({
             return;
         }
 
-        if (value === currentValue) {
+        if (path === pathname) {
             const newLeftPosition = tabElementRect.left - initialIndicatorLeftPosition;
             indicatorElement.style.left = `${newLeftPosition}px`;
         }
-    }, [tabElementRef, indicatorElement, initialIndicatorLeftPosition, value, currentValue]);
+    }, [tabElementRef, indicatorElement, initialIndicatorLeftPosition, path, pathname]);
 };
 
-type TUseTabListenerProps = Pick<ITabProps, 'value' | 'searchParamKey'> & {
+type TUseTabListenerProps = Pick<ITabProps, 'path'> & {
     tabElementRef: TTabElementRef;
 };
 type TUseTabListener = (props: TUseTabListenerProps) => void;
 
-export const useTabListener: TUseTabListener = ({ tabElementRef, value, searchParamKey }) => {
-    const updateSearchParams = useUpdateSearchParams();
+export const useTabListener: TUseTabListener = ({ tabElementRef, path }) => {
+    const { push } = useRouter();
 
     useEffect(() => {
         const tabElement = tabElementRef.current;
@@ -51,7 +53,7 @@ export const useTabListener: TUseTabListener = ({ tabElementRef, value, searchPa
         }
 
         const clickHandler = (): void => {
-            updateSearchParams(searchParamKey, value);
+            push(`../${path}`, { shallow: true });
         };
 
         tabElement.addEventListener('click', clickHandler);
@@ -59,5 +61,5 @@ export const useTabListener: TUseTabListener = ({ tabElementRef, value, searchPa
         return (): void => {
             tabElement.removeEventListener('click', clickHandler);
         };
-    }, [tabElementRef, updateSearchParams, value, searchParamKey]);
+    }, [tabElementRef, push, path]);
 };

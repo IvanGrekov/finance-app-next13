@@ -1,3 +1,4 @@
-import type { AppProps } from 'next/app';
-
-export type TPageProps = AppProps['pageProps'];
+export interface IPageProps {
+    params: Record<string, string | string[] | undefined>;
+    searchParams: Record<string, string | string[]>;
+}
