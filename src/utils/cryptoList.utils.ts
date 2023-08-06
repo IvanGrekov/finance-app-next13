@@ -1,21 +1,19 @@
-import { TApiCryptoList, TCryptoList } from 'models/types/cryptoList';
+import { IApiCryptoList, TCryptoList } from 'models/types/cryptoList';
 
-export const formatCryptoList = (data?: TApiCryptoList): TCryptoList => {
+export const formatCryptoList = (data?: IApiCryptoList): TCryptoList => {
     if (!data) {
         return [];
     }
 
-    return data.map((coin) => {
-        const { Id, Name, FullName, ImageUrl } = coin.CoinInfo;
-        const { PRICE, FROMSYMBOL } = coin.DISPLAY.USD;
+    return Object.values(data).map(({ BTC, USD }) => {
+        const { FROMSYMBOL, IMAGEURL, PRICE: priceBtc } = BTC;
+        const { PRICE: priceUsd } = USD;
 
         return {
-            id: Id,
-            name: Name,
-            fullName: FullName,
-            imageUrl: `https://www.cryptocompare.com${ImageUrl}`,
-            price: PRICE,
             symbol: FROMSYMBOL,
+            imageUrl: IMAGEURL,
+            priceBtc,
+            priceUsd,
         };
     });
 };

@@ -1,27 +1,25 @@
 export interface IApiCryptoCurrency {
-    CoinInfo: {
-        Id: string;
-        Name: string;
-        FullName: string;
-        ImageUrl: string;
+    BTC: {
+        FROMSYMBOL: string;
+        PRICE: number;
+        IMAGEURL: string;
     };
-    DISPLAY: {
-        USD: {
-            PRICE: string;
-            FROMSYMBOL: string;
-        };
+    USD: {
+        FROMSYMBOL: string;
+        PRICE: number;
+        IMAGEURL: string;
     };
 }
 
-export type TApiCryptoList = IApiCryptoCurrency[];
+export interface IApiCryptoList {
+    [key: string]: IApiCryptoCurrency;
+}
 
 export interface ICryptoCurrency {
-    id: string;
-    name: string;
-    fullName: string;
-    imageUrl: string;
-    price: string;
     symbol: string;
+    imageUrl: string;
+    priceUsd: number;
+    priceBtc: number;
 }
 
 export type TCryptoList = ICryptoCurrency[];

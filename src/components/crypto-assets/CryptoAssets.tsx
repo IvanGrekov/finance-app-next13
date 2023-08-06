@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 import useCryptoList from 'models/API/crypto/services/cryptoList';
 import { usePageLoading } from 'models/contexts/PageLoading';
+import { formatCurrency } from 'utils/format.utils';
 
 export default function CryptoAssets(): JSX.Element {
     const { setIsLoading } = usePageLoading();
@@ -16,7 +17,9 @@ export default function CryptoAssets(): JSX.Element {
     return (
         <ul>
             {data?.map((crypto) => (
-                <li key={crypto.id}>{crypto.name}</li>
+                <li key={crypto.symbol}>
+                    {crypto.symbol} - {formatCurrency(crypto.priceUsd)}
+                </li>
             ))}
         </ul>
     );
