@@ -1,7 +1,7 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 
-import CryptoAssets from 'components/crypto-assets/CryptoAssets';
-import HydrateClient from 'components/hydrate-client/HydrateClient';
+// import CryptoAssets from 'components/crypto-assets/CryptoAssets';
+// import HydrateClient from 'components/hydrate-client/HydrateClient';
 import { QUERY_KEYS } from 'models/API/crypto/constants';
 import { getCryptoList } from 'models/API/crypto/services/cryptoList';
 import { IPageData } from 'models/types/getPageData';
@@ -20,11 +20,14 @@ export const metadata = {
 };
 
 export default async function CryptoAssetsPage(): Promise<JSX.Element> {
-    const { dehydratedState } = await getData();
+    // NOTE: commented to don't waste API calls (IG)
+    getData;
+    // const { dehydratedState } = await getData();
 
     return (
-        <HydrateClient state={dehydratedState}>
-            <CryptoAssets />
-        </HydrateClient>
+        // <HydrateClient state={dehydratedState}>
+        //     <CryptoAssets />
+        <>Crypto Assets</>
+        // </HydrateClient>
     );
 }

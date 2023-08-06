@@ -2,13 +2,13 @@
 
 import { useEffect } from 'react';
 
-import { useCryptoList } from 'models/API/crypto/services/cryptoList';
+import { useExchangeRates } from 'models/API/exchange-rates/services';
 import { usePageLoading } from 'models/contexts/PageLoading';
 import { formatCurrency } from 'utils/format.utils';
 
-export default function CryptoAssets(): JSX.Element {
+export default function CashAssets(): JSX.Element {
     const { setIsLoading } = usePageLoading();
-    const { data, isLoading } = useCryptoList();
+    const { data, isLoading } = useExchangeRates();
 
     useEffect(() => {
         setIsLoading(isLoading);
@@ -16,9 +16,9 @@ export default function CryptoAssets(): JSX.Element {
 
     return (
         <ul>
-            {data?.map(({ symbol, priceUsd }) => (
-                <li key={symbol}>
-                    {symbol} - {formatCurrency(priceUsd)}
+            {Object.values(data || {}).map(({ code, value }) => (
+                <li key={code}>
+                    {code} - {formatCurrency(value)}
                 </li>
             ))}
         </ul>
