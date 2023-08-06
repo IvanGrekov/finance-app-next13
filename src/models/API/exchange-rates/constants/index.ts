@@ -1,3 +1,4 @@
+// NOTE: https://app.currencyapi.com/dashboard (IG)
 export const BASE_URL = 'https://api.currencyapi.com/v3';
 export const API_KEY = 'cur_live_kCEDfqEAArxxehjCFj5tJazYfGKxIIMQ1O9ZbA1G';
 
