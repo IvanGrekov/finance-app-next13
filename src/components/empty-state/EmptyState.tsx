@@ -27,6 +27,7 @@ export default function EmptyState({ isError, text }: IEmptyStateProps): JSX.Ele
                     <FolderOffIcon className={iconColorClassName} />
                 )}
             </div>
+
             <Typography element="h2" variant="h4" className={textColorClassName}>
                 {text || defaultText}
             </Typography>
