@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function CryptoAssetsPage(): Promise<JSX.Element> {
-    // const data = await getCryptoList({ revalidate: 300 });
+    // const data = await getCryptoList({ revalidate: 600 });
 
     return <CryptoAssets data={[]} />;
 }
