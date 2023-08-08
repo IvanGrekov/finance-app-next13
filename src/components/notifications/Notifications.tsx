@@ -35,7 +35,7 @@ export default function Notifications(): JSX.Element | null {
                         icon={<CloseIcon fontSize="small" />}
                         onClick={(): void => onRemoveNotification(id)}
                         title="Remove notification"
-                        className={styles['toggle-button']}
+                        className={styles['close-button']}
                     />
                 </div>
             ))}

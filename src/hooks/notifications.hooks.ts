@@ -1,11 +1,17 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 
-// import { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 import { DEFAULT_NOTIFICATIONS, MAX_NOTIFICATIONS } from 'constants/notifications';
-import { TNotificationsContextValue, TAddNotification } from 'models/types/notifications';
+import { useNotifications } from 'models/contexts/Notifications';
+import {
+    TNotificationsContextValue,
+    TAddNotification,
+    ENotificationType,
+} from 'models/types/notifications';
 
 type TUseInitNotifications = () => TNotificationsContextValue;
 
@@ -29,24 +35,20 @@ export const useInitNotifications: TUseInitNotifications = () => {
     );
 };
 
-// type TUseHandleNetworkError = (error: AxiosError | null) => void;
+type TUseHandleNetworkError = (error: AxiosError | null) => void;
 
-// export const useHandleNetworkError: TUseHandleNetworkError = (error) => {
-//     const context = useContext(NotificationsContext);
+export const useHandleNetworkError: TUseHandleNetworkError = (error) => {
+    const context = useNotifications();
 
-//     if (!context) {
-//         throw new Error('useHandleNetworkError must be used within a NotificationsProvider');
-//     }
+    const { addNotification } = context;
 
-//     const { addNotification } = context;
-
-//     useEffect(() => {
-//         if (error) {
-//             addNotification({
-//                 message: `Network error: ${error.message}`,
-//                 id: uuidv4(),
-//                 type: ENotificationType.ERROR,
-//             });
-//         }
-//     }, [error, addNotification]);
-// };
+    useEffect(() => {
+        if (error) {
+            addNotification({
+                message: `Network error: ${error.message}`,
+                id: uuidv4(),
+                type: ENotificationType.ERROR,
+            });
+        }
+    }, [error, addNotification]);
+};

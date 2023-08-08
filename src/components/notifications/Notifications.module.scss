@@ -25,14 +25,14 @@ $item-content-color: $violet-900;
     padding: 1.5rem;
 
     border-radius: 1rem;
-    background-color: $blue-300;
+    background-color: $blue-500;
 
     &--success {
-        background-color: $green-300;
+        background-color: $green-800;
     }
 
     &--error {
-        background-color: $red-300;
+        background-color: $red-400;
     }
 }
 
@@ -40,17 +40,6 @@ $item-content-color: $violet-900;
     color: $item-content-color;
 }
 
-.toggle-button {
+.close-button {
     padding: 0;
-
-    svg {
-        color: $item-content-color;
-    }
-
-    &:hover,
-    &:focus {
-        svg {
-            color: $violet-800;
-        }
-    }
 }
