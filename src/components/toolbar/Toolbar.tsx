@@ -1,5 +1,6 @@
 'use client';
 
+// TODO: Replace Icon and remove "'use client';"
 import MenuIcon from '@mui/icons-material/Menu';
 import cx from 'classnames';
 

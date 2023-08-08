@@ -2,6 +2,7 @@
 
 import { createPortal } from 'react-dom';
 
+// TODO: Replace Icon and remove "'use client';"
 import CloseIcon from '@mui/icons-material/Close';
 import cx from 'classnames';
 

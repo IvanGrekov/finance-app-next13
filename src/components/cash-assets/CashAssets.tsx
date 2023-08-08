@@ -6,9 +6,16 @@ interface ICashAssetsProps {
 }
 
 export default function CashAssets({ data }: ICashAssetsProps): JSX.Element {
+    const assets = Object.values(data);
+
+    if (!assets.length) {
+        // TODO: Replace with EmptyState component
+        return <p>Something went wrong</p>;
+    }
+
     return (
         <ul>
-            {Object.values(data).map(({ code, value }) => (
+            {assets.map(({ code, value }) => (
                 <li key={code}>
                     {code} - {formatCurrency(value)}
                 </li>

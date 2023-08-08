@@ -1,5 +1,6 @@
 'use client';
 
+// TODO: Replace Icon and remove "'use client';"
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
 import IconButton from 'components/button/IconButton';

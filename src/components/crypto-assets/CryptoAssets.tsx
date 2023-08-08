@@ -6,6 +6,11 @@ interface ICryptoAssetsProps {
 }
 
 export default function CryptoAssets({ data }: ICryptoAssetsProps): JSX.Element {
+    if (!data.length) {
+        // TODO: Replace with EmptyState component
+        return <p>Something went wrong</p>;
+    }
+
     return (
         <ul>
             {data.map(({ symbol, priceUsd }) => (

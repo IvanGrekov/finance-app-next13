@@ -1,5 +1,6 @@
 'use client';
 
+// TODO: Replace Icon and remove "'use client';"
 import CloseIcon from '@mui/icons-material/Close';
 
 import IconButton from 'components/button/IconButton';

@@ -1,5 +1,6 @@
 'use client';
 
+// TODO: Replace Icons and remove "'use client';"
 import ErrorIcon from '@mui/icons-material/Error';
 import FolderOffIcon from '@mui/icons-material/FolderOff';
 
