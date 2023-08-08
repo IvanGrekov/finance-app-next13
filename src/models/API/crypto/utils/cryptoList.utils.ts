@@ -1,4 +1,5 @@
-import { IApiCryptoList, TCryptoList } from 'models/API/crypto/types/cryptoList';
+import { IApiCryptoList } from 'models/API/crypto/types/cryptoList';
+import { TCryptoList } from 'models/types/crypto';
 
 export const formatCryptoList = (data?: IApiCryptoList): TCryptoList => {
     if (!data) {

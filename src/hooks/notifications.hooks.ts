@@ -1,6 +1,5 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 
-import { AxiosError } from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
 import { DEFAULT_NOTIFICATIONS, MAX_NOTIFICATIONS } from 'constants/notifications';
@@ -33,7 +32,7 @@ export const useInitNotifications: TUseInitNotifications = () => {
     );
 };
 
-type TUseHandleNetworkError = (error: AxiosError | null) => void;
+type TUseHandleNetworkError = (error: Error | null) => void;
 
 export const useHandleNetworkError: TUseHandleNetworkError = (error) => {
     const context = useNotifications();

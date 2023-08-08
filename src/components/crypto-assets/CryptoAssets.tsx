@@ -1,22 +1,14 @@
-'use client';
-
-import { useEffect } from 'react';
-
-import { useCryptoList } from 'models/API/crypto/services/cryptoList';
-import { usePageLoading } from 'models/contexts/PageLoading';
+import { TCryptoList } from 'models/types/crypto';
 import { formatCurrency } from 'utils/format.utils';
 
-export default function CryptoAssets(): JSX.Element {
-    const { setIsLoading } = usePageLoading();
-    const { data, isLoading } = useCryptoList();
+interface ICryptoAssetsProps {
+    data: TCryptoList;
+}
 
-    useEffect(() => {
-        setIsLoading(isLoading);
-    }, [isLoading, setIsLoading]);
-
+export default function CryptoAssets({ data }: ICryptoAssetsProps): JSX.Element {
     return (
         <ul>
-            {data?.map(({ symbol, priceUsd }) => (
+            {data.map(({ symbol, priceUsd }) => (
                 <li key={symbol}>
                     {symbol} - {formatCurrency(priceUsd)}
                 </li>

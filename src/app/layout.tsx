@@ -1,9 +1,6 @@
 import Providers from 'app/providers';
 import ContentWrapper from 'components/content-wrapper/ContentWrapper';
 import NavigationSidebar from 'components/navigation-sidebar/NavigationSidebar';
-import { MobileNavigationSidebarProvider } from 'models/contexts/MobileNavigationSidebar';
-import { NotificationsProvider } from 'models/contexts/Notifications';
-import { PageLoadingProvider } from 'models/contexts/PageLoading';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -21,16 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
     return (
         <html lang="en">
             <body>
-                <PageLoadingProvider>
-                    <NotificationsProvider>
-                        <MobileNavigationSidebarProvider>
-                            <NavigationSidebar />
-                            <ContentWrapper>
-                                <Providers>{children}</Providers>
-                            </ContentWrapper>
-                        </MobileNavigationSidebarProvider>
-                    </NotificationsProvider>
-                </PageLoadingProvider>
+                <Providers>
+                    <NavigationSidebar />
+                    <ContentWrapper>{children}</ContentWrapper>
+                </Providers>
             </body>
         </html>
     );

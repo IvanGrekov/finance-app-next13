@@ -1,22 +1,14 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
+import { END_POINTS, EXCHANGE_RATES_SEARCH_PARAMS } from 'models/API/exchange-rates/constants';
+import { IExchangeRatesData } from 'models/types/exchangeRates';
+import { INextRequestOptions } from 'models/types/getPageData';
 
-import API from 'models/API/exchange-rates';
-import { END_POINTS, QUERY_KEYS, CURRENCIES } from 'models/API/exchange-rates/constants';
-import { IExchangeRatesData } from 'models/API/exchange-rates/types';
+type TGetExchangeRates = (nextRequestOptions?: INextRequestOptions) => Promise<IExchangeRatesData>;
 
-export const getExchangeRates = async (): Promise<IExchangeRatesData> => {
-    const { data } = await API.get(END_POINTS.getExchangeRates, {
-        params: {
-            currencies: CURRENCIES.join(),
-        },
+export const getExchangeRates: TGetExchangeRates = async (nextRequestOptions = {}) => {
+    const res = await fetch(`${END_POINTS.getExchangeRates}?${EXCHANGE_RATES_SEARCH_PARAMS}`, {
+        next: nextRequestOptions,
     });
+    const data = await res.json();
 
-    return data.data;
-};
-
-export const useExchangeRates = (): UseQueryResult<IExchangeRatesData> => {
-    return useQuery({
-        queryKey: [QUERY_KEYS.exchangeRates],
-        queryFn: getExchangeRates,
-    });
+    return data.data || {};
 };
